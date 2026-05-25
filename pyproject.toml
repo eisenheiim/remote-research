@@ -1,0 +1,13 @@
+[project]
+name = "mcpp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "anthropic>=0.104.1",
+    "arxiv>=4.0.0",
+    "mcp>=1.27.1",
+    "nest-asyncio>=1.6.0",
+    "python-dotenv>=1.2.2",
+]
