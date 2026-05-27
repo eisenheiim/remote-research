@@ -1,13 +1,13 @@
 import arxiv
 import json
-import os
 from typing import List
 from mcp.server.fastmcp import FastMCP
 
 PAPER_DIR = "papers"
 
-# Initialize FastMCP server
-mcp = FastMCP("research", port=8001)
+import os
+port = int(os.environ.get("PORT", 8000))
+mcp = FastMCP("research", port=port)
 
 @mcp.tool()
 def search_papers(topic: str, max_results: int = 5) -> List[str]:
