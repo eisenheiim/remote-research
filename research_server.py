@@ -8,7 +8,7 @@ from starlette.routing import Mount, Route
 import uvicorn
 
 PAPER_DIR = "papers"
-
+import os
 # Initialize FastMCP server
 mcp = FastMCP("research", port=8001)
 
