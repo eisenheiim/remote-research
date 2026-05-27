@@ -179,7 +179,7 @@ Each server is configured with execution command and parameters.
 ## Setup Instructions
 
 ### Prerequisites
-- Python 3.14+
+- Python 3.11+
 - OpenAI API key
 - Internet connection for paper searching and content fetching
 
@@ -202,7 +202,7 @@ pip install -e .
 
 Or manually install dependencies:
 ```bash
-pip install anthropic arxiv mcp nest-asyncio python-dotenv
+pip install arxiv mcp nest-asyncio openai python-dotenv
 ```
 
 4. **Configure API Keys:**
@@ -232,10 +232,10 @@ python main.py
 
 | Package | Version | Purpose |
 |---------|---------|---------|
-| anthropic | >=0.104.1 | Anthropic's Python client library |
 | arxiv | >=4.0.0 | arXiv paper searching and metadata retrieval |
 | mcp | >=1.27.1 | Model Context Protocol implementation |
 | nest-asyncio | >=1.6.0 | Async/await support for nested event loops |
+| openai | >=1.0.0 | OpenAI Python client library |
 | python-dotenv | >=1.2.2 | Environment variable management |
 
 ## How It Works
@@ -282,6 +282,8 @@ Create a `key.env` file in the project root:
 ```env
 OPENAI_API_KEY=sk-...          # Your OpenAI API key
 ```
+
+`OPENAI_API_KEY` is only required for the chatbot client in `mcp_chatbot.py`; the research MCP server can run without it.
 
 **Note**: Never commit `key.env` to version control. Add it to `.gitignore`.
 

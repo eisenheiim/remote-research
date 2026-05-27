@@ -1,22 +1,8 @@
-import openai
 import arxiv
 import json
 import os
 from typing import List
-from dotenv import load_dotenv
 from mcp.server.fastmcp import FastMCP
-
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-load_dotenv(os.path.join(BASE_DIR, "key.env"))
-
-api_key = os.getenv("OPENAI_API_KEY")
-if not api_key:
-    raise RuntimeError(
-        "OPENAI_API_KEY is missing. Put it in key.env or export it in your shell."
-    )
-
-client = openai.OpenAI(api_key=api_key)
 
 # Initialize FastMCP
 mcp = FastMCP("research")
