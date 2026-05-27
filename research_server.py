@@ -11,8 +11,10 @@ import uvicorn
 
 PAPER_DIR = "papers"
 
-# Initialize FastMCP server
-mcp = FastMCP("research")
+# Initialize FastMCP server for public hosting.
+# Using a non-localhost host here prevents FastMCP from auto-enabling
+# localhost-only DNS rebinding protection, which would reject Render's host.
+mcp = FastMCP("research", host="0.0.0.0")
 
 @mcp.tool()
 def search_papers(topic: str, max_results: int = 5) -> List[str]:
