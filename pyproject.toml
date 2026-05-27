@@ -1,7 +1,7 @@
 [project]
 name = "mcpp"
 version = "0.1.0"
-description = "Add your description here"
+description = "An MCP-based chatbot and research server for paper discovery and tool orchestration."
 readme = "README.md"
 requires-python = ">=3.11,<3.15"
 dependencies = [
@@ -11,3 +11,6 @@ dependencies = [
     "openai>=1.0.0",
     "python-dotenv>=1.2.2",
 ]
+
+[project.scripts]
+mcpp = "main:main"

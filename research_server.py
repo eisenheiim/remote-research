@@ -171,7 +171,7 @@ def get_topic_papers(topic: str) -> str:
 
 @mcp.prompt()
 def generate_search_prompt(topic: str, num_papers: int = 5) -> str:
-    """Generate a prompt for Claude to find and discuss academic papers on a specific topic."""
+    """Generate a prompt for an assistant to find and discuss academic papers on a specific topic."""
     return f"""Search for {num_papers} academic papers about '{topic}' using the search_papers tool. 
 
     Follow these instructions:
@@ -195,7 +195,7 @@ def generate_search_prompt(topic: str, num_papers: int = 5) -> str:
     
     Please present both detailed information about each paper and a high-level synthesis of the research landscape in {topic}."""
 
-if __name__ == "__main__":
+def run_server() -> None:
     transport = os.getenv("MCP_TRANSPORT")
     port = int(os.getenv("PORT", "8001"))
 
@@ -215,3 +215,7 @@ if __name__ == "__main__":
         )
 
         uvicorn.run(app, host="0.0.0.0", port=port)
+
+
+if __name__ == "__main__":
+    run_server()

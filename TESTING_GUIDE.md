@@ -46,7 +46,7 @@ uvx @modelcontextprotocol/inspector python research_server.py
 
 ### Available Prompts:
 1. **generate_search_prompt(topic, num_papers)**
-   - Generate a Claude prompt for paper research
+   - Generate a research prompt for paper discovery
 
 ## Troubleshooting
 
@@ -59,7 +59,7 @@ uvx @modelcontextprotocol/inspector python research_server.py
 - Or install globally: `npm install -g @modelcontextprotocol/inspector`
 
 ### Server doesn't respond
-- Make sure you're in the MCPP directory: `cd /Users/sude/Desktop/MCPP`
+- Make sure you're in the MCPP directory: `cd /path/to/MCPP`
 - Activate the virtual environment: `source .venv/bin/activate`
 - Check that arxiv package is installed: `pip list | grep arxiv`
 
@@ -67,7 +67,7 @@ uvx @modelcontextprotocol/inspector python research_server.py
 
 Once you've verified the server works with the Inspector, you can test it with your chatbot:
 ```bash
-python mcp_chatbot.py
+python main.py
 ```
 
-The chatbot will connect to all configured servers and make their tools available to Claude.
+The chatbot will connect to all configured servers and make their tools available to the assistant.
