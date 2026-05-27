@@ -1,6 +1,5 @@
 import arxiv
 import json
-import os
 from typing import List
 from mcp.server.fastmcp import FastMCP
 from starlette.applications import Starlette
@@ -11,7 +10,7 @@ import uvicorn
 PAPER_DIR = "papers"
 
 # Initialize FastMCP server
-mcp = FastMCP("research")
+mcp = FastMCP("research", port=8001)
 
 @mcp.tool()
 def search_papers(topic: str, max_results: int = 5) -> List[str]:
@@ -193,22 +192,5 @@ def generate_search_prompt(topic: str, num_papers: int = 5) -> str:
     Please present both detailed information about each paper and a high-level synthesis of the research landscape in {topic}."""
 
 if __name__ == "__main__":
-    transport = os.getenv("MCP_TRANSPORT")
-    port = int(os.getenv("PORT", "8001"))
-
-    if transport == "stdio" or (transport is None and "PORT" not in os.environ):
-        # Local MCP client use: stdio keeps the chatbot/server_config flow working.
-        mcp.run(transport="stdio")
-    else:
-        # Render use: expose an HTTP endpoint and a lightweight health check.
-        mcp.settings.host = "0.0.0.0"
-        mcp.settings.port = port
-
-        app = Starlette(
-            routes=[
-                Route("/healthz", lambda request: PlainTextResponse("ok")),
-                Mount("/", app=mcp.sse_app()),
-            ]
-        )
-
-        uvicorn.run(app, host="0.0.0.0", port=port)
+    # Initialize and run the server
+    mcp.run(transport='sse')

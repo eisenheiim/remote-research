@@ -1,4 +1,4 @@
-# MCPP - Model Context Protocol Project
+# MCP - Model Context Protocol Project
 
 A Python-based application that implements the **Model Context Protocol (MCP)** to create intelligent chatbot systems that can interact with multiple data sources and tools through a unified interface.
 
