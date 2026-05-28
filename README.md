@@ -11,15 +11,7 @@ MCPP demonstrates how to connect a single client application to multiple MCP ser
 - a file-based store for paper metadata
 - support for filesystem and web-fetch MCP servers
 
-## Why It’s Interesting
 
-This project is useful as a portfolio piece because it shows:
-
-- protocol-based tool orchestration
-- async Python development
-- LLM tool calling
-- server/client separation
-- local persistence of structured research data
 
 ## Features
 
